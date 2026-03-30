@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    *{margin:0;padding:0px;box-sizing:border-box;font-size:14px;overflow: hidden; }
+    html, body {margin: 0;padding: 0;width: 400px;   height: 400px;overflow: hidden; background-color: rgba(244, 16, 16, 0);}
+    .target-box {--ring-width: 20px;--color-purple: #ff9ae7;--color-black: #b11d8a;width: 400px;height: 400px;border-radius: 50%;background: repeating-radial-gradient(circle at center,var(--color-purple) 0,var(--color-purple) var(--ring-width),var(--color-black) var(--ring-width),var(--color-black) calc(2 * var(--ring-width)));}
+    .container{width:400px;height:400px;border-radius: 50%;background: url('monitor.png')no-repeat center;background-size: contain;overflow:hidden;display: flex;flex-direction: column;align-items: center;}
+    h3{background-color: rgb(240, 240, 240, 0.5);}
+    .item{margin:10px 0;text-align: center;}
+    input{width:200px;padding:4px;}
+    button{padding:4px 8px;background:#fb7299;color:#fff;border:none;border-radius:4px;cursor:pointer;margin:2px;}
+    .list{margin-top:5px;max-width:250px;max-height:120px;overflow-y:auto;}
+    .tag{display:inline-block;background:#f0f0f0;padding:3px 6px;margin:3px;border-radius:3px;}
+    .del{color:red;margin-left:5px;cursor:pointer;}
+    .file-actions{margin-top:10px;}
+    #importInput{display:none;}
+  </style>
+</head>
+<body class="target-box">
+<div class="container">
+  <div class="item">
+    <br><br>
+    <h3>📛 标题屏蔽词</h3>
+    <input id="wordInput" placeholder="输入关键词">
+    <button id="addWord">添加</button>
+    <div id="wordList" class="list"></div>
+  </div>
+  <br><br>
+  <div class="item">
+    <h3>👤 UP主屏蔽</h3>
+    <input id="upInput" placeholder="输入UP名称">
+    <button id="addUp">添加</button>
+    <div id="upList" class="list"></div>
+  </div>
+
+  <div class="file-actions">
+    <button id="exportBtn">导出配置</button>
+    <button id="importBtn">导入配置</button>
+    <input type="file" id="importInput" accept=".json">
+  </div>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>
