@@ -59,7 +59,7 @@ document.getElementById("addUp").onclick = () => {
 // 导出配置到文件
 document.getElementById("exportBtn").onclick = () => {
   chrome.runtime.sendMessage({ type: "exportConfig" }, (res) => {
-    res.success ? alert("✅ 配置已导出到下载文件夹") : alert("❌ 导出失败");
+    if(res.success)alert("✅ 配置已导出到下载文件夹");
   });
 };
 
@@ -83,7 +83,7 @@ document.getElementById("importInput").onchange = (e) => {
         alert("✅ 配置导入成功");
       });
     } catch (error) {
-      alert("❌ 配置文件格式错误，请选择正确的JSON文件");
+      alert("❌ 配置文件格式错误");
     }
   };
   reader.readAsText(file);
